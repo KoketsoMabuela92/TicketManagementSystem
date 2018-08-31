@@ -26,10 +26,12 @@ class HomeController extends Controller
         $request->user()->authorizeRoles(['normal', 'emailer', 'anonymous']);
         logger($request->user());
         logger($request->user()->roles[0]['name']);
+
         if ($request->user()->roles[0]['name'] === 'normal') {
 
-            return view('log_ticket');
+            return view('tickets');
         }
+
         return view('home');
     }
 }
